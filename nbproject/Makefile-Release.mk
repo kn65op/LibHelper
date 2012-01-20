@@ -36,6 +36,12 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/_ext/1165779166/Helper.o
 
+# Test Directory
+TESTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tests
+
+# Test Files
+TESTFILES= \
+	${TESTDIR}/TestFiles/f2
 
 # C Compiler Flags
 CFLAGS=
@@ -68,6 +74,41 @@ ${OBJECTDIR}/_ext/1165779166/Helper.o: /home/tomko/Programowanie/Helper/Helper.c
 
 # Subprojects
 .build-subprojects:
+
+# Build Test Targets
+.build-tests-conf: .build-conf ${TESTFILES}
+${TESTDIR}/TestFiles/f2: ${TESTDIR}/_ext/395685644/HelperTest.o ${OBJECTFILES:%.o=%_nomain.o}
+	${MKDIR} -p ${TESTDIR}/TestFiles
+	${LINK.cc}   -o ${TESTDIR}/TestFiles/f2 $^ ${LDLIBSOPTIONS} 
+
+
+${TESTDIR}/_ext/395685644/HelperTest.o: /home/tomko/Programowanie/Helper/tests/HelperTest.cpp 
+	${MKDIR} -p ${TESTDIR}/_ext/395685644
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -I. -MMD -MP -MF $@.d -o ${TESTDIR}/_ext/395685644/HelperTest.o /home/tomko/Programowanie/Helper/tests/HelperTest.cpp
+
+
+${OBJECTDIR}/_ext/1165779166/Helper_nomain.o: ${OBJECTDIR}/_ext/1165779166/Helper.o /home/tomko/Programowanie/Helper/Helper.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1165779166
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/_ext/1165779166/Helper.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} $@.d;\
+	    $(COMPILE.cc) -O2 -fPIC  -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1165779166/Helper_nomain.o /home/tomko/Programowanie/Helper/Helper.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/_ext/1165779166/Helper.o ${OBJECTDIR}/_ext/1165779166/Helper_nomain.o;\
+	fi
+
+# Run Test Targets
+.test-conf:
+	@if [ "${TEST}" = "" ]; \
+	then  \
+	    ${TESTDIR}/TestFiles/f2 || true; \
+	else  \
+	    ./${TEST} || true; \
+	fi
 
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}

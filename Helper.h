@@ -19,6 +19,7 @@ public:
    * @return String odpowiadający tej liczbie. Jeśli przekazana liczba nie jest całkowita to następuje obcięcie (np. z 5.6 tworzone jest "5").
    */
   static std::string intToString(int n);
+  static std::string doubleToString(double n);
 private:
   Helper();
 };

@@ -22,3 +22,10 @@ string Helper::intToString(int n)
   ss << n;
   return ss.str();
 }
+
+string Helper::doubleToString(double n)
+{
+  stringstream ss;
+  ss << n;
+  return ss.str();
+}

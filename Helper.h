@@ -19,6 +19,11 @@ public:
    * @return String odpowiadający tej liczbie. Jeśli przekazana liczba nie jest całkowita to następuje obcięcie (np. z 5.6 tworzone jest "5").
    */
   static std::string intToString(int n);
+  /**
+   * Funkcja zmieniająca double na std::string
+   * @param n double do zmiany.
+   * @return std::string odpowiadający danej liczbie.
+   */
   static std::string doubleToString(double n);
 private:
   Helper();

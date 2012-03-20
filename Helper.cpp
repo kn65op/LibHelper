@@ -16,14 +16,14 @@ Helper::Helper()
   
 }
 
-string Helper::intToString(int n)
+inline string Helper::intToString(int n)
 {
   stringstream ss;
   ss << n;
   return ss.str();
 }
 
-string Helper::doubleToString(double n)
+inline string Helper::doubleToString(double n)
 {
   stringstream ss;
   ss << n;

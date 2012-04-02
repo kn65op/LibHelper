@@ -15,15 +15,20 @@ Helper::Helper()
 {
   
 }
+Helper::Helper(const Helper & h)
+{
+  
+}
 
-inline string Helper::intToString(int n)
+
+inline static string Helper::intToString(int n)
 {
   stringstream ss;
   ss << n;
   return ss.str();
 }
 
-inline string Helper::doubleToString(double n)
+inline static string Helper::doubleToString(double n)
 {
   stringstream ss;
   ss << n;

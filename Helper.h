@@ -27,6 +27,7 @@ public:
   static std::string doubleToString(double n);
 private:
   Helper();
+  Helper(const Helper & h);
 };
 
 #endif	/* HELPER_H */

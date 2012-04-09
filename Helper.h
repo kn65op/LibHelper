@@ -10,6 +10,9 @@
 
 #include <string>
 
+/**
+ * Klasa udostępniająca statyczne funkcje pomocnicze.
+ */
 class Helper
 {
 public:

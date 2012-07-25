@@ -25,7 +25,7 @@ public:
    * Default destructor.
    */
   virtual ~UsesRandom();
-private:
+protected:
   //random
   std::random_device rd;
   std::mt19937 *gen;

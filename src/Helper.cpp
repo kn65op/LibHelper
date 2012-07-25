@@ -5,7 +5,7 @@
  * Created on 18 listopad 2011, 16:50
  */
 
-#include "Helper.h"
+#include "../include/Helper.h"
 
 #include <sstream>
 
@@ -15,11 +15,11 @@ Helper::Helper()
 {
   
 }
+
 Helper::Helper(const Helper & h)
 {
   
 }
-
 
 string Helper::intToString(int n)
 {

@@ -4,7 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>Helper.h</itemPath>
+      <itemPath>include/Helper.h</itemPath>
       <itemPath>include/UsesRandom.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -14,7 +14,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>Helper.cpp</itemPath>
+      <itemPath>src/Helper.cpp</itemPath>
       <itemPath>src/UsesRandom.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"

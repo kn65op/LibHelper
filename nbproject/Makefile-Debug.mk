@@ -35,7 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/src/UsesRandom.o \
-	${OBJECTDIR}/Helper.o
+	${OBJECTDIR}/src/Helper.o
 
 
 # C Compiler Flags
@@ -67,10 +67,10 @@ ${OBJECTDIR}/src/UsesRandom.o: src/UsesRandom.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -g -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/UsesRandom.o src/UsesRandom.cpp
 
-${OBJECTDIR}/Helper.o: Helper.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/Helper.o: src/Helper.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
-	$(COMPILE.cc) -g -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/Helper.o Helper.cpp
+	$(COMPILE.cc) -g -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Helper.o src/Helper.cpp
 
 # Subprojects
 .build-subprojects:

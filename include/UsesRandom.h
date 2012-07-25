@@ -11,7 +11,10 @@
 #include <random>
 
 /**
- * Class which is interface to class that use random engine. For now it use mersenne twister engine.
+ * @brief Class which is interface to class that use random engine.
+ * 
+ * For now it use mersenne twister engine.
+ * This class can be use to skip part of making engine and device in C++11 way. You can just create distribution which you like to use and use gen which is poiter to std::mt199937 engine.
  */
 class UsesRandom
 {

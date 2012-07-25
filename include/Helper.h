@@ -11,7 +11,10 @@
 #include <string>
 
 /**
- * Klasa udostępniająca statyczne funkcje pomocnicze.
+ * @brief Klasa udostępniająca statyczne funkcje pomocnicze do konwersji liczb na string(deprecated).
+ * 
+ * Nie są potrzebne z uwagi na dostępne funkcje w C++11 std::to_string(*).
+ * Zachowane tylko z uwagi na kompatybilność wsteczną oraz dla pragramów, które nie mogą używać standardu C+11.
  */
 class Helper
 {

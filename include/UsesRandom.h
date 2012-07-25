@@ -30,7 +30,7 @@ public:
    */
   virtual ~UsesRandom();
 protected:
-  /*random device
+  /** random device
    */
   std::random_device rd;
   /** random engine

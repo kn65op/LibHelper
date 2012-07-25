@@ -34,6 +34,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/src/UsesRandom.o \
 	${OBJECTDIR}/Helper.o
 
 
@@ -60,6 +61,11 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libHelper.so: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -std=c++0x -shared -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libHelper.so -fPIC ${OBJECTFILES} ${LDLIBSOPTIONS} 
+
+${OBJECTDIR}/src/UsesRandom.o: src/UsesRandom.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -g -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/UsesRandom.o src/UsesRandom.cpp
 
 ${OBJECTDIR}/Helper.o: Helper.cpp 
 	${MKDIR} -p ${OBJECTDIR}

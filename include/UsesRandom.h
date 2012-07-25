@@ -20,14 +20,21 @@ public:
    * Default constructor.
    */
   UsesRandom();
+  /**
+   * Copy constructor which creates new objects for random engine.
+   * @param orig Original object.
+   */
   UsesRandom(const UsesRandom& orig);
   /**
    * Default destructor.
    */
   virtual ~UsesRandom();
 protected:
-  //random
+  /*random device
+   */
   std::random_device rd;
+  /** random engine
+   */
   std::mt19937 *gen;
 };
 

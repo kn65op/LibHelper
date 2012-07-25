@@ -14,6 +14,8 @@ UsesRandom::UsesRandom()
 
 UsesRandom::UsesRandom(const UsesRandom& orig)
 {
+  //new engine
+  gen = new std::mt19937(rd());
 }
 
 UsesRandom::~UsesRandom()

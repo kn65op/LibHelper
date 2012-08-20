@@ -7,6 +7,8 @@
 
 #include "../include/UsesRandom.h"
 
+using namespace Helper;
+
 UsesRandom::UsesRandom()
 {
   gen = new std::mt19937(rd());

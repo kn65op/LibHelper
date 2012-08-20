@@ -10,6 +10,9 @@
 
 #include <random>
 
+namespace Helper
+{
+
 /**
  * @brief Class which is interface to class that use random engine.
  * 
@@ -41,5 +44,6 @@ protected:
   std::mt19937 *gen;
 };
 
+}//namespace
 #endif	/* USESRANDOM_H */
 

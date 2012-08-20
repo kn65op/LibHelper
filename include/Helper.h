@@ -10,6 +10,9 @@
 
 #include <string>
 
+namespace THelper
+{
+
 /**
  * @brief Klasa udostępniająca statyczne funkcje pomocnicze do konwersji liczb na string(deprecated).
  * 
@@ -35,6 +38,6 @@ private:
   Helper();
   Helper(const Helper & h);
 };
-
+}
 #endif	/* HELPER_H */
 

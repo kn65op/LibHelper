@@ -10,7 +10,7 @@
 
 #include <random>
 
-namespace Helper
+namespace THelper
 {
 
 /**

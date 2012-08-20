@@ -7,7 +7,7 @@
 
 #include "../include/UsesRandom.h"
 
-using namespace Helper;
+using namespace THelper;
 
 UsesRandom::UsesRandom()
 {

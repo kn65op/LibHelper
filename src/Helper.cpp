@@ -10,6 +10,7 @@
 #include <sstream>
 
 using namespace std;
+using namespace THelper;
 
 Helper::Helper()
 {

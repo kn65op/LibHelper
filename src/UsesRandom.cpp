@@ -9,6 +9,8 @@
 
 using namespace THelper;
 
+std::random_device UsesRandom::rd;
+
 UsesRandom::UsesRandom()
 {
   gen = new std::mt19937(rd());

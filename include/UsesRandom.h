@@ -38,7 +38,7 @@ public:
 protected:
   /** random device
    */
-  std::random_device rd;
+  static std::random_device rd;
   /** random engine
    */
   std::mt19937 *gen;

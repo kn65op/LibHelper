@@ -1,3 +1,0 @@
-#!/bin/bash
-cp Helper.h /usr/include/tomko/
-cp dist/Debug/GNU-Linux-x86/libHelper.so /usr/lib/tomko/

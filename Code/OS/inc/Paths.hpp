@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 namespace THelper
 {
 namespace OS
@@ -8,8 +10,10 @@ namespace OS
 class Paths
 {
 public:
-  Paths();
   virtual ~Paths();
+
+  virtual std::string getHomeDir() const = 0;
+
 };
 
 }

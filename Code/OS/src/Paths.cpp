@@ -2,11 +2,6 @@
 
 using namespace THelper::OS;
 
-Paths::Paths()
-{
-
-}
-
 Paths::~Paths()
 {
 }

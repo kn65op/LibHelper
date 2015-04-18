@@ -11,7 +11,9 @@ namespace OS
 class IFactory
 {
 public:
-  virtual ~IFactory();
+  virtual ~IFactory()
+  {}
+
   virtual std::unique_ptr<Paths> getPaths() const = 0;
 
 };

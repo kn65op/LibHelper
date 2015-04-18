@@ -7,7 +7,7 @@ set(RELEASE_BIN_DIR "Release")
 set(LIB_NAME "THelper")
 
 #project
-project (tlogger)
+project (thelper)
 
 #externial libs
 
@@ -40,6 +40,7 @@ include_directories(${SRC_DIR})
 
 #files
 file(GLOB RANDOM_LIB_FILES ${SRC_DIR}/Random/src/*.cpp)
+file(GLOB OS_LIB_FILES ${SRC_DIR}/OS/src/*.cpp)
 
 #executables
 if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
@@ -54,7 +55,7 @@ if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
 	#test		
 	if (${BUILD_TESTS})
 	add_subdirectory(Test)		
-	endif (NOT ${NO_TESTS} STREQUAL "YES")
+	endif (${BUILD_TESTS})
 elseif (${CMAKE_BUILD_TYPE} STREQUAL "Release")
 	file(MAKE_DIRECTORY ${RELEASE_BIN_DIR})
 	set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${RELEASE_BIN_DIR})
@@ -62,7 +63,7 @@ else (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
 	message(FATAL_ERROR "Invalid build type. Can be Debug | Release")
 endif (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
 
-add_library(${LIB_NAME} ${RANDOM_LIB_FILES})
+add_library(${LIB_NAME} ${RANDOM_LIB_FILES} ${OS_LIB_FILES})
 
 #libraries
 #TARGET_LINK_LIBRARIES(${LIB_OUTPUT_FILE} ${Boost_LIBRARIES} )

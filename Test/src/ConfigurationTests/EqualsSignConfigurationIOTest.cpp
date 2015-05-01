@@ -20,8 +20,8 @@ struct EqualsSignConfiguratorIOTest : Test
   const std::string newline{"\n"};
   const std::string equal_sign{"="};
 
-  std::string file_string{param_one + equal_sign + value_one + newline
-                          + param_two + equal_sign + value_two + newline};
+  const std::string file_string{param_one + equal_sign + value_one + newline
+                                + param_two + equal_sign + value_two + newline};
 };
 
 TEST_F(EqualsSignConfiguratorIOTest, ShouldStoreWithEqualsSignBetweenParameterAndValue)

@@ -52,7 +52,6 @@ set(CMAKE_CXX_FLAGS_DEBUG "${EXTRA_WARNING_FLAGS}")
 
 #test files
 file(GLOB TEST_MAIN ${TEST_SRC_DIR}/*.cpp)
-
 file(GLOB CONFIGURATION_TEST_FILES ${TEST_SRC_DIR}/${CONFIGURATION_TESTS_DIR}/*.cpp)
 
 #tests
@@ -60,7 +59,8 @@ enable_testing()
 
 file(MAKE_DIRECTORY ${TEST_EXE_DIR})
 
-add_executable(${TEST_EXE} ${TEST_MAIN} ${THELPER_LIB_FILES} ${CONFIGURATION_TEST_FILES})
+add_executable(${TEST_EXE} ${TEST_MAIN}
+               ${CONFIGURATION_TEST_FILES} ${CONFIGURATION_LIB_FILES})
 target_link_libraries(${TEST_EXE} ${LIB_GMOCK})
 #TARGET_LINK_LIBRARIES(${TEST_EXE} ${Boost_LIBRARIES} )
 add_test(gtests ${TEST_EXE}) 

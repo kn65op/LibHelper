@@ -40,7 +40,7 @@ set(CONFIGURATION_MOCKS_DIR Configuration${MOCKS_POSTFIX})
 
 #project includes
 #include_directories(${PROJECT_SOURCE_DIR}/${SRC_DIR}/GmockTest)
-include_directories(${TEST_INC_DIR}/${THELPER_LIB_MOCKS_DIR}/)
+include_directories(${TEST_INC_DIR}/${CONFIGURATION_MOCKS_DIR}/)
 
 #externial libs
 

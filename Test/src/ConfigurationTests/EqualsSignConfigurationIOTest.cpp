@@ -1,7 +1,8 @@
+#include <gtest/gtest.h>
+#include <sstream>
 #include "Configuration/inc/EqualsSignConfiguratorIO.hpp"
 #include "ConfiguratorMock.hpp"
 
-#include <gtest/gtest.h>
 
 using namespace THelper::Configuration;
 using namespace THelper::Configuration::UT;
@@ -13,7 +14,8 @@ struct EqualsSignConfiguratorIOTest : Test
   ConfiguratorMock conf;
 };
 
-TEST_F(EqualsSignConfiguratorIOTest, S)
+TEST_F(EqualsSignConfiguratorIOTest, ShouldStoreWithEqualsSignBetweenParameterAndValue)
 {
-
+  std::ostringstream output;
+  confIO.save(conf, out);
 }

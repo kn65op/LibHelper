@@ -19,3 +19,7 @@ std::string Configurator::loadStringParameter(const std::string& parameter) cons
   }
 }
 
+std::pair<IConfigurator::Container::const_iterator, IConfigurator::Container::const_iterator> Configurator::getAllParams() const
+{
+  return std::make_pair(values.begin(), values.end());
+}

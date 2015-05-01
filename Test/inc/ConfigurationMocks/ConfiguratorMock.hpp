@@ -18,6 +18,9 @@ public:
                void(const std::string& parameter, const std::string& value));
   MOCK_CONST_METHOD1(loadStringParameter,
                      std::string(const std::string& parameter));
+  MOCK_CONST_METHOD0(getAllParams,
+                     std::pair<Container::const_iterator, Container::const_iterator>());
+
 };
 
 }

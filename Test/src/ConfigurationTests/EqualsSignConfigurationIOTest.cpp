@@ -26,8 +26,22 @@ struct EqualsSignConfiguratorIOTest : Test
 
 TEST_F(EqualsSignConfiguratorIOTest, ShouldStoreWithEqualsSignBetweenParameterAndValue)
 {
+  ConfiguratorMock::Container cont;
+  cont[param_one] = value_one;
+  cont[param_two] = value_two;
+  EXPECT_CALL(conf, getAllParams()).WillOnce(Return(std::make_pair(cont.begin(), cont.end())));
+
   std::ostringstream output;
   confIO.save(conf, output);
 
   EXPECT_EQ(file_string, output.str());
+}
+
+TEST_F(EqualsSignConfiguratorIOTest, ShouldLoadFromStringAndSetParams)
+{
+  EXPECT_CALL(conf, storeStringParameter(param_one, value_one));
+  EXPECT_CALL(conf, storeStringParameter(param_two, value_two));
+
+  std::istringstream input{file_string};
+  confIO.load(conf, input);
 }

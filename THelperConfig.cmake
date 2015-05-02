@@ -7,8 +7,7 @@
  
 # Compute paths
 get_filename_component(THELPER_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
-set(THELPER_INCLUDE_DIRS "THelper/Code/OS/inc
-                         THelper/Code/Random/inc")
+set(THELPER_INCLUDE_DIRS "THelper/include")
  
 # These are IMPORTED targets created by THelperTargets.cmake
 set(THELPER_LIBRARIES_DIR "THelper/${CMAKE_BUILD_TYPE}")

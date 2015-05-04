@@ -1,7 +1,7 @@
 #pragma once
 
 #include <gmock/gmock.h>
-#include "Configuration/inc/Configurator.hpp"
+#include "Configuration/Configurator.hpp"
 
 namespace THelper
 {

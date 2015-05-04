@@ -1,4 +1,4 @@
-#include "../inc/Configurator.hpp"
+#include "Configuration/Configurator.hpp"
 
 using namespace THelper::Configuration;
 

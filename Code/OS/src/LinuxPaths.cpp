@@ -1,4 +1,4 @@
-#include "../inc/LinuxPaths.hpp"
+#include "OS/LinuxPaths.hpp"
 
 using namespace THelper::OS;
 

@@ -1,4 +1,4 @@
-#include "../inc/EqualsSignConfiguratorIO.hpp"
+#include "Configuration/EqualsSignConfiguratorIO.hpp"
 
 using namespace THelper::Configuration;
 

@@ -1,4 +1,4 @@
-#include "../inc/UsesRandom.h"
+#include "Random/UsesRandom.h"
 
 using namespace THelper;
 

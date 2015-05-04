@@ -1,4 +1,4 @@
-#include "Configuration/inc/Configurator.hpp"
+#include "Configuration/Configurator.hpp"
 
 #include <gtest/gtest.h>
 

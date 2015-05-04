@@ -1,4 +1,4 @@
-#include "../inc/WindowsPaths.hpp"
+#include "OS/WindowsPaths.hpp"
 
 using namespace THelper::OS;
 

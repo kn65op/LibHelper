@@ -1,6 +1,6 @@
-#include "../inc/Factory.hpp"
-#include "../inc/WindowsPaths.hpp"
-#include "../inc/LinuxPaths.hpp"
+#include "OS/Factory.hpp"
+#include "OS/WindowsPaths.hpp"
+#include "OS/LinuxPaths.hpp"
 
 using namespace THelper::OS;
 

@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <sstream>
-#include "Configuration/inc/EqualsSignConfiguratorIO.hpp"
+#include "Configuration/EqualsSignConfiguratorIO.hpp"
 #include "ConfiguratorMock.hpp"
 
 

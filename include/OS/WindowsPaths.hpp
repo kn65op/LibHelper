@@ -13,6 +13,7 @@ public:
   WindowsPaths();
   ~WindowsPaths();
   std::string getHomeDir() const override;
+  std::string getTmpDir() const override;
 };
 
 }}

@@ -14,3 +14,8 @@ std::string LinuxPaths::getHomeDir() const
 {
   return std::getenv("HOME");
 }
+
+std::string LinuxPaths::getTmpDir() const
+{
+  return "/tmp";
+}

@@ -13,6 +13,7 @@ public:
   LinuxPaths();
   ~LinuxPaths();
   std::string getHomeDir() const override;
+  std::string getTmpDir() const override;
 };
 
 }}

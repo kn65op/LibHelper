@@ -16,7 +16,7 @@ public:
     CouldNotConvert(const std::string& msg) : std::logic_error(msg)
     {}
   };
-  std::string getTimeStringInFormat(const std::tm* time, const std::string& format);
+  std::string getDateStringInFormat(const std::tm* time, const std::string& format);
 };
 
 }

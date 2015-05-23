@@ -2,7 +2,7 @@
 
 using namespace DateTime;
 
-std::string DateIO::getTimeStringInFormat(const std::tm* time, const std::string& format)
+std::string DateIO::getDateStringInFormat(const std::tm* time, const std::string& format)
 {
   //Not using put_time as it is not available in GCC4.9
   if (!time)

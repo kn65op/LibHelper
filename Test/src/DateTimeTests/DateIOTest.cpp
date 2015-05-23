@@ -13,7 +13,7 @@ struct DateIoTest : public Test
 
 TEST_F(DateIoTest, getStringInFormatShouldThrowWhenNullPtrPassedAsTime)
 {
-  EXPECT_THROW(date.getTimeStringInFormat(nullptr, "%H"), DateTime::DateIO::CouldNotConvert);
+  EXPECT_THROW(date.getDateStringInFormat(nullptr, "%H"), DateTime::DateIO::CouldNotConvert);
 }
 
 TEST_F(DateIoTest, getStringInFormatShouldThrowWhenTooLongFormatIsRequested)
@@ -21,7 +21,7 @@ TEST_F(DateIoTest, getStringInFormatShouldThrowWhenTooLongFormatIsRequested)
   auto now = std::chrono::system_clock::now();
   auto now_time_t = std::chrono::system_clock::to_time_t(now);
 
-  EXPECT_THROW(date.getTimeStringInFormat(std::localtime(&now_time_t), "%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A"
+  EXPECT_THROW(date.getDateStringInFormat(std::localtime(&now_time_t), "%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A"
       "%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A%A"), DateTime::DateIO::CouldNotConvert);
 }
 
@@ -29,14 +29,14 @@ TEST_F(DateIoTest, getStringInFormatShouldNoThrowForNowDay)
 {
   auto now = std::chrono::system_clock::now();
   auto now_time_t = std::chrono::system_clock::to_time_t(now);
-  EXPECT_NO_THROW(date.getTimeStringInFormat(std::localtime(&now_time_t), "%H%M%S"));
+  EXPECT_NO_THROW(date.getDateStringInFormat(std::localtime(&now_time_t), "%H%M%S"));
 }
 
 TEST_F(DateIoTest, getStringInFormatShouldReturnEmptyStringForNoFormat)
 {
   auto now = std::chrono::system_clock::now();
   auto now_time_t = std::chrono::system_clock::to_time_t(now);
-  EXPECT_EQ("", date.getTimeStringInFormat(std::localtime(&now_time_t), ""));
+  EXPECT_EQ("", date.getDateStringInFormat(std::localtime(&now_time_t), ""));
 }
 
 TEST_F(DateIoTest, getStringInFormatShouldReturnToday)
@@ -48,5 +48,5 @@ TEST_F(DateIoTest, getStringInFormatShouldReturnToday)
   auto now_time_t = std::chrono::system_clock::to_time_t(some_day);
 
 
-  EXPECT_EQ("0101-134401", date.getTimeStringInFormat(std::localtime(&now_time_t), "%m%d-%H%M%S"));
+  EXPECT_EQ("0101-134401", date.getDateStringInFormat(std::localtime(&now_time_t), "%m%d-%H%M%S"));
 }

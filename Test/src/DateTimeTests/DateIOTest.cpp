@@ -2,8 +2,6 @@
 #include <gtest/gtest.h>
 #include <chrono>
 
-#include <iostream>
-
 using namespace ::testing;
 
 struct DateIoTest : public Test

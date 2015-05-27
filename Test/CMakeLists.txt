@@ -40,11 +40,15 @@ set(CONFIGURATION_MOCKS_DIR Configuration${MOCKS_POSTFIX})
 
 set(DATE_TIME_TESTS_DIR DateTime${TESTS_POSTFIX})
 set(DATE_TIME_MOCKS_DIR DateTime${MOCKS_POSTFIX})
+
+set(STREAM_TESTS_DIR Stream${TESTS_POSTFIX})
+set(STREAM_MOCKS_DIR Stream${MOCKS_POSTFIX})
 #project includes
 
 #include_directories(${PROJECT_SOURCE_DIR}/${SRC_DIR}/GmockTest)
 include_directories(${TEST_INC_DIR}/${CONFIGURATION_MOCKS_DIR}/)
 include_directories(${TEST_INC_DIR}/${DATE_TIME_MOCKS_DIR}/)
+include_directories(${TEST_INC_DIR}/${STREAM_MOCKS_DIR}/)
 
 #externial libs
 
@@ -58,6 +62,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${EXTRA_WARNING_FLAGS}")
 file(GLOB TEST_MAIN ${TEST_SRC_DIR}/*.cpp)
 file(GLOB CONFIGURATION_TEST_FILES ${TEST_SRC_DIR}/${CONFIGURATION_TESTS_DIR}/*.cpp)
 file(GLOB DATE_TIME_TEST_FILES ${TEST_SRC_DIR}/${DATE_TIME_TESTS_DIR}/*.cpp)
+file(GLOB STREAM_TEST_FILES ${TEST_SRC_DIR}/${STREAM_TESTS_DIR}/*.cpp)
 
 #tests
 enable_testing()
@@ -66,7 +71,8 @@ file(MAKE_DIRECTORY ${TEST_EXE_DIR})
 
 add_executable(${TEST_EXE} ${TEST_MAIN}
                ${CONFIGURATION_TEST_FILES} ${CONFIGURATION_LIB_FILES}
-               ${DATE_TIME_TEST_FILES} ${DATE_TIME_LIB_FILES})
+               ${DATE_TIME_TEST_FILES} ${DATE_TIME_LIB_FILES}
+               ${STREAM_TEST_FILES} ${STREAM_LIB_FILES})
 target_link_libraries(${TEST_EXE} ${LIB_GMOCK})
 #TARGET_LINK_LIBRARIES(${TEST_EXE} ${Boost_LIBRARIES} )
 add_test(gtests ${TEST_EXE}) 

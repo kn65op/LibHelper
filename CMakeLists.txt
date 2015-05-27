@@ -44,6 +44,7 @@ file(GLOB RANDOM_LIB_FILES ${SRC_DIR}/Random/src/*.cpp)
 file(GLOB OS_LIB_FILES ${SRC_DIR}/OS/src/*.cpp)
 file(GLOB CONFIGURATION_LIB_FILES ${SRC_DIR}/Configuration/src/*.cpp)
 file(GLOB DATE_TIME_LIB_FILES ${SRC_DIR}/DateTime/src/*.cpp)
+file(GLOB STREAM_LIB_FILES ${SRC_DIR}/Stream/src/*.cpp)
 
 #executables
 if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
@@ -66,7 +67,7 @@ else (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
 	message(FATAL_ERROR "Invalid build type. Can be Debug | Release")
 endif (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
 
-add_library(${LIB_NAME} ${RANDOM_LIB_FILES} ${OS_LIB_FILES} ${CONFIGURATION_LIB_FILES} ${DATE_TIME_LIB_FILES})
+add_library(${LIB_NAME} ${RANDOM_LIB_FILES} ${OS_LIB_FILES} ${CONFIGURATION_LIB_FILES} ${DATE_TIME_LIB_FILES} ${STREAM_LIB_FILES})
 
 #libraries
 #TARGET_LINK_LIBRARIES(${LIB_OUTPUT_FILE} ${Boost_LIBRARIES} )

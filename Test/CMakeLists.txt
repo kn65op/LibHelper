@@ -79,9 +79,6 @@ add_test(gtests ${TEST_EXE})
 
 set(COVERAGE_DIR coverage)
 set(SOURCE_RAW_FILES_DIR "${CMAKE_BINARY_DIR}/Test/CMakeFiles/Tester.dir/__/Code")
-set(THELPER_LIB_RAW_FILES_DIR "${CMAKE_BINARY_DIR}/Test/CMakeFiles/Tester.dir/__/Code/thelper/src")
-set(THELPER_LIB_COVERAGE_RAW_FILES "${CMAKE_BINARY_DIR}/Test/CMakeFiles/Tester.dir/__/Code/thelper/src/*.gcda")
-set(THELPER_LIB_O_FILES "${THELPER_LIB_COVERAGE_RAW_FILES_DIR}/*.o")
 
 add_custom_target(coverage)
 add_custom_command(TARGET coverage

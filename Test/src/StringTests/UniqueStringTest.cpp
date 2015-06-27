@@ -85,5 +85,46 @@ TEST_F(UniqueStringWithStringTester, AfterSettingDefaultNameItShouldBeUsedDuring
   UniqueStdString::setDefaultName(default_string);
   UniqueStdString new_default;
   EXPECT_EQ(default_string, new_default.getContent());
+}
 
+TEST_F(UniqueStringWithStringTester, AfterCreationStringShoulBeReAssinged)
+{
+  const std::string new_value{"new_value"};
+  un = new_value;
+  EXPECT_EQ(new_value, un.getContent());
+}
+
+TEST_F(UniqueStringWithStringTester, WhenTwoUniqueStdStringsAreSetToSameStringItShouldHaveDifferentContent)
+{
+  const std::string new_value{"new_value"};
+  un = new_value;
+  UniqueStdString un2;
+  un2 = new_value;
+  EXPECT_EQ(new_value, un.getContent());
+  EXPECT_EQ(new_value + "2", un2.getContent());
+}
+
+TEST_F(UniqueStringWithStringTester, ShouldTellIfNameIsAlreadyInUse)
+{
+  EXPECT_TRUE(UniqueStdString::isStringInUse(un.getContent()));
+  EXPECT_FALSE(UniqueStdString::isStringInUse(un.getContent() + "a"));
+}
+
+TEST_F(UniqueStringWithStringTester, WhenTwoUniqueStdStringsAreSetToSameStringUsingSafeAssignItShouldThrow)
+{
+  const std::string new_value{"new_value"};
+  un.safeAssign(new_value);
+  UniqueStdString un2;
+  const std::string un2_before_assigment{un2.getContent()};
+  EXPECT_THROW(un2.safeAssign(new_value), StringAlreadyInUse);
+  EXPECT_EQ(un2_before_assigment, un2.getContent());
+}
+
+TEST_F(UniqueStringWithStringTester, AssigningOwnValueShouldNotChangeValue)
+{
+  const std::string un_before_assigment{un.getContent()};
+  un = un_before_assigment;
+  EXPECT_EQ(un_before_assigment, un.getContent());
+  un.safeAssign(un_before_assigment);
+  EXPECT_EQ(un_before_assigment, un.getContent());
 }

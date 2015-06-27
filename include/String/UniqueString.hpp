@@ -2,11 +2,18 @@
 
 #include <set>
 #include <string>
+#include <stdexcept>
 
 namespace THelper
 {
 namespace String
 {
+
+struct StringAlreadyInUse : public std::logic_error
+{
+  StringAlreadyInUse(const std::string msg) : std::logic_error{msg}
+  {};
+};
 
 template <class String, unsigned Category = 0> class UniqueString
 {
@@ -40,7 +47,31 @@ public:
 
   ~UniqueString()
   {
-    names_in_use.erase(content);
+    dropUsedString();
+  }
+
+  const UniqueString& operator=(const String &string)
+  {
+    dropUsedString();
+    content = storeUniqueString(string);
+    return *this;
+  }
+
+  const UniqueString& safeAssign(const String &string)
+  {
+    String old_value = dropUsedStringWithOldValueReturn();
+    if (isStringInUse(string))
+    {
+      content = storeUniqueString(old_value);
+      throw StringAlreadyInUse(string);
+    }
+    content = storeUniqueString(string);
+    return *this;
+  }
+
+  static bool isStringInUse(const String& string)
+  {
+    return names_in_use.find(string) != names_in_use.end();
   }
 
   UniqueString(const UniqueString &) = delete;
@@ -52,15 +83,14 @@ private:
   typedef std::set<String> Container;
   typedef typename Container::iterator ContainerIterator;
 
-  ContainerIterator storeUniqueString(String proposition)
+  ContainerIterator storeUniqueString(const String& proposition)
   {
     String to_add = findUniqueName(proposition);
     auto ret = names_in_use.insert(to_add);
     return ret.first;
   }
 
-
-  String findUniqueName(String proposition)
+  String findUniqueName(const String& proposition)
   {
     if (names_in_use.find(proposition) == names_in_use.end())
     {
@@ -73,6 +103,18 @@ private:
       proposition_accumulator = proposition + std::to_string(i++);
     }
     return proposition_accumulator;
+  }
+
+  String dropUsedStringWithOldValueReturn()
+  {
+    const String old_content = *content;
+    dropUsedString();
+    return old_content;
+  }
+
+  void dropUsedString()
+  {
+    names_in_use.erase(content);
   }
 
   ContainerIterator content;

@@ -30,7 +30,6 @@ endif (EXISTS "${GMOCK_INCLUDE}")
 set(GMOCK_INCLUDE_DIR "${GMOCK_DIR}/include/gmock")
 set(GMOCK_INCLUDE "${GMOCK_INCLUDE_DIR}/gmock.h")
 
-
 #projects parts
 set(TESTS_POSTFIX Tests)
 set(MOCKS_POSTFIX Mocks)

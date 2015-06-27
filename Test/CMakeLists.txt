@@ -57,7 +57,7 @@ include_directories(${TEST_INC_DIR}/${STRING_MOCKS_DIR}/)
 
 set(CMAKE_CXX_FLAGS_DEBUG "${NORMAL_WARNING_FLAGS}")
 
-add_subdirectory(${GMOCK_SUB_DIR} gmock)
+add_subdirectory(${GMOCK_MAIN_DIR} gmock)
 
 set(CMAKE_CXX_FLAGS_DEBUG "${EXTRA_WARNING_FLAGS}")
 

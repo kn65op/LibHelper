@@ -1,6 +1,6 @@
 #include "DateTime/DateIO.hpp"
 
-using namespace DateTime;
+using namespace THelper::DateTime;
 
 std::string DateIO::getDateStringInFormat(const std::tm* time, const std::string& format)
 {

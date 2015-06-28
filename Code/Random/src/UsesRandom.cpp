@@ -1,6 +1,6 @@
 #include "Random/UsesRandom.h"
 
-using namespace THelper;
+using namespace THelper::Random;
 
 std::random_device UsesRandom::rd;
 

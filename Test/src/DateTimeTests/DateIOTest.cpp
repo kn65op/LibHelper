@@ -3,6 +3,7 @@
 #include <chrono>
 
 using namespace ::testing;
+using namespace THelper;
 
 struct DateIoTest : public Test
 {

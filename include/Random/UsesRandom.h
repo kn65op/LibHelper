@@ -6,6 +6,9 @@
 namespace THelper
 {
 
+namespace Random
+{
+
 /**
  * @brief Class which is interface to class that use random engine.
  *
@@ -37,4 +40,5 @@ protected:
   std::unique_ptr<std::mt19937> gen;
 };
 
-}//namespace
+}
+}

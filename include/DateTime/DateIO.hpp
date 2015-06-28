@@ -4,6 +4,9 @@
 #include <ctime>
 #include <stdexcept>
 
+namespace THelper
+{
+
 namespace DateTime
 {
 
@@ -19,4 +22,5 @@ public:
   std::string getDateStringInFormat(const std::tm* time, const std::string& format);
 };
 
+}
 }

@@ -2,6 +2,9 @@
 
 #include <iostream>
 
+namespace THelper
+{
+
 namespace Stream
 {
 
@@ -11,4 +14,5 @@ public:
   static std::string getLineRegardlessLineEnding(std::istream &in);
 };
 
+}
 }

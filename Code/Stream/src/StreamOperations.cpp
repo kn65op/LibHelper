@@ -1,6 +1,6 @@
 #include "Stream/StreamOperations.hpp"
 
-using namespace Stream;
+using namespace THelper::Stream;
 
 std::string StreamOperations::getLineRegardlessLineEnding(std::istream &in)
 {

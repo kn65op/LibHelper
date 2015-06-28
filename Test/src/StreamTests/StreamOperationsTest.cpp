@@ -4,6 +4,7 @@
 #include "Stream/StreamOperations.hpp"
 
 using namespace ::testing;
+using namespace THelper;
 
 struct StreamOperationsTest : public Test
 {

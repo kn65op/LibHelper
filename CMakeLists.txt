@@ -53,17 +53,12 @@ if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
 	else ("${NO_COVERAGE}" STREQUAL "true")
 		add_definitions(--coverage)
 	endif ("${NO_COVERAGE}" STREQUAL "true")
-	file(MAKE_DIRECTORY ${DEBUG_BIN_DIR})
-	set(LIBRARY_OUTPUT_DIRECTORY ${DEBUG_BIN_DIR})
-	set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${DEBUG_BIN_DIR})
 			
 	#test		
 	if (${BUILD_TESTS})
 	add_subdirectory(Test)		
 	endif (${BUILD_TESTS})
 elseif (${CMAKE_BUILD_TYPE} STREQUAL "Release")
-	file(MAKE_DIRECTORY ${RELEASE_BIN_DIR})
-	set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${RELEASE_BIN_DIR})
 else (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
 	message(FATAL_ERROR "Invalid build type. Can be Debug | Release")
 endif (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
@@ -78,4 +73,14 @@ add_library(${LIB_NAME} ${RANDOM_LIB_FILES}
 
 #libraries
 #TARGET_LINK_LIBRARIES(${LIB_OUTPUT_FILE} ${Boost_LIBRARIES} )
+
+#exporting for other projects
+export(TARGETS ${LIB_NAME} FILE "${PROJECT_BINARY_DIR}/THelperTargets.cmake")
+export(PACKAGE thelper)
+
+set(EXPORT_TARGETS THelper CACHE INTERNAL "export targets")
+set(CONFIG_INCLUDE_DIRS "${thelper_SOURCE_DIR}/include")
+set(CONFIG_LIBRARY_DIR "${PROJECT_BINARY_DIR}")
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/thelper-config.cmake.in
+       "${PROJECT_BINARY_DIR}/thelper-config.cmake" @ONLY)
 

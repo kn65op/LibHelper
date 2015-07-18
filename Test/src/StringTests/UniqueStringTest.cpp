@@ -16,6 +16,11 @@ TEST_F(UniqueStringWithStringTester, NewUniqueStringShouldNotBeEmpty)
   EXPECT_FALSE(un.empty());
 }
 
+TEST_F(UniqueStringWithStringTester, NewUniuqueStringShouldNotBeEmptyWhenPassedEmptyString)
+{
+  EXPECT_FALSE(UniqueStdString{""}.empty());
+}
+
 TEST_F(UniqueStringWithStringTester, TwoNewUniqueStringShouldHaveBeDifferent)
 {
   UniqueStdString un1;

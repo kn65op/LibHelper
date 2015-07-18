@@ -21,7 +21,7 @@ public:
   UniqueString() : UniqueString(default_name)
   {}
 
-  UniqueString(String s) : content(storeUniqueString(s))
+  UniqueString(String s) : content(s.empty() ? storeUniqueString(default_name) : storeUniqueString(s))
   {
   }
 

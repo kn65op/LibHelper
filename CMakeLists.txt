@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 2.8.4)
 
 #variables
 set(SRC_DIR "Code")
-set(INCLUDE_DIR "include")
+set(INCLUDE_DIR "include/THelper")
 set(DEBUG_BIN_DIR "Debug")
 set(RELEASE_BIN_DIR "Release")
 set(LIB_NAME "THelper")

@@ -13,7 +13,7 @@ project (thelper)
 #externial libs
 
 #compiler options
-set(CMAKE_CXX_FLAGS "-std=c++1y")
+set(CMAKE_CXX_FLAGS "-std=c++14")
 
 if ("${NO_COVERAGE}" STREQUAL "true")
 	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")

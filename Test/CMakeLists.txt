@@ -1,14 +1,14 @@
-set(TEST_DIR ".")
+set(TEST_DIR "./")
 set(TEST_EXE_DIR "${TEST_DIR}")
 set(TEST_SRC_DIR "${TEST_DIR}/src")
 set(TEST_INC_DIR "${TEST_DIR}/inc")
-set(TEST_EXE ${TEST_EXE_DIR}/Tester)
+set(TEST_EXE THelperTests)
 
 if ("${GMOCK_DIR}" STREQUAL "")
 	message(STATUS "No GMOCK_DIR variable set, trying to use system gmock")
 	set(GMOCK_DIR "/usr/src/googletest/googlemock")
 	set(GMOCK_H_INCLUDE_DIR /usr/include/gmock)
-	et(GMOCK_MAIN_DIR ${GMOCK_DIR})
+	set(GMOCK_MAIN_DIR ${GMOCK_DIR})
 else ("${GMOCK_DIR}" STREQUAL "")
 	set(GMOCK_MAIN_DIR "${GMOCK_DIR}")
 	set(GMOCK_INCLUDE_DIR "${GMOCK_MAIN_DIR}/include")
@@ -83,6 +83,7 @@ target_link_libraries(${TEST_EXE} ${LIB_GMOCK})
 #TARGET_LINK_LIBRARIES(${TEST_EXE} ${Boost_LIBRARIES} )
 add_test(gtests ${TEST_EXE}) 
 
+if (NOT "${NO_COVERAGE}" STREQUAL "true")
 set(COVERAGE_DIR coverage)
 set(SOURCE_RAW_FILES_DIR "${CMAKE_BINARY_DIR}/Test/CMakeFiles/Tester.dir/__/Code")
 
@@ -103,3 +104,4 @@ add_custom_command(TARGET coverage_view
 	WORKING_DIRECTORY ${COVERAGE_DIR})
 
 add_dependencies(coverage_view coverage)
+endif (NOT "${NO_COVERAGE}" STREQUAL "true")

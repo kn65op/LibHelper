@@ -48,20 +48,17 @@ file(GLOB STREAM_LIB_FILES ${SRC_DIR}/Stream/src/*.cpp)
 file(GLOB STRING_LIB_FILES ${SRC_DIR}/String/src/*.cpp)
 
 #executables
-if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
-	if ("${NO_COVERAGE}" STREQUAL "true")
-	else ("${NO_COVERAGE}" STREQUAL "true")
-		add_definitions(--coverage)
-	endif ("${NO_COVERAGE}" STREQUAL "true")
-			
-	#test		
-	if (${BUILD_TESTS})
-	add_subdirectory(Test)		
-	endif (${BUILD_TESTS})
-elseif (${CMAKE_BUILD_TYPE} STREQUAL "Release")
-else (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
-	message(FATAL_ERROR "Invalid build type. Can be Debug | Release")
-endif (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+if ("${NO_COVERAGE}" STREQUAL "true")
+else ("${NO_COVERAGE}" STREQUAL "true")
+	SET(GCC_COVERAGE_COMPILE_FLAGS "-fprofile-arcs -ftest-coverage")
+	SET(GCC_COVERAGE_LINK_FLAGS    "-lgcov")
+	SET( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}" )
+	SET( CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${GCC_COVERAGE_LINK_FLAGS}" )
+	#add_definitions(${GCC_COVERAGE_COMPILE_FLAGS})
+endif ("${NO_COVERAGE}" STREQUAL "true")
+
+#test
+add_subdirectory(Test)
 
 add_library(${LIB_NAME} ${RANDOM_LIB_FILES}
 	  		${OS_LIB_FILES}

@@ -58,7 +58,9 @@ else ("${NO_COVERAGE}" STREQUAL "true")
 endif ("${NO_COVERAGE}" STREQUAL "true")
 
 #test
-add_subdirectory(Test)
+if (NOT "${NO_TEST}" STREQUAL "true")
+  add_subdirectory(Test)
+endif ( NOT "${NO_TEST}" STREQUAL "true")
 
 add_library(${LIB_NAME} ${RANDOM_LIB_FILES}
 	  		${OS_LIB_FILES}

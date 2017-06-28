@@ -16,7 +16,7 @@ script:
   if [ ${COVERITY_SCAN_BRANCH} == 1 ]; then exit ; fi &&
   cmake .. -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=Yes -DGMOCK_DIR=../googletest/googlemock &&
   make -j `nproc` &&
-  Test/Tester
+  Test/THelperTests
 
 env:
   global:
@@ -30,6 +30,6 @@ addons:
       name: "kn65op/THelper"
       description: "Various libs"
     notification_email: kn65op+github@gmail.com
-    build_command_prepend: cmake .. -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=Yes -DGMOCK_DIR=../gmock-1.7.0
+    build_command_prepend: cmake .. -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=Yes -DGMOCK_DIR=../googletest/googlemock &&
     build_command: make -j `nproc`
     branch_pattern: coverity_scan
